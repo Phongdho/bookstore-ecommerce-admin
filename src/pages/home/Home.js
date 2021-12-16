@@ -2,8 +2,6 @@ import Chart from "../../components/chart/Chart";
 import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
 import {useState, useMemo, useEffect} from "react";
 import "./home.css";
-import WidgetSm from "../../components/widgetSm/WidgetSm";
-import WidgetLg from "../../components/widgetLg/WidgetLg";
 import { userRequest } from "../../apiService";
 
 export default function Home() {
@@ -68,10 +66,6 @@ export default function Home() {
       <FeaturedInfo />
       <Chart data={userStats} title="User Analytics" grid dataKey="Active User"/>
       <Chart data={saleStats} title="Sales Analytics" grid dataKey="Recorded Sales"/>
-      <div className="homeWidgets">
-        <WidgetSm/>
-        <WidgetLg/>
-      </div>
     </div>
   );
 }

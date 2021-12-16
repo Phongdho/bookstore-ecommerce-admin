@@ -39,7 +39,7 @@ export default function Sidebar() {
             <Link to="/users" className="link">
               <li id="users" className={state=== "users" ? "sidebarListItem active" : "sidebarListItem"}  onClick={(e) => setState(e.target.id)} >
                 <PermIdentity className="sidebarIcon" />
-                Users
+                Users/Transactions
               </li>
             </Link>
             <Link to="/products" className="link">
@@ -48,17 +48,17 @@ export default function Sidebar() {
                 Products
               </li>
             </Link>
-            <li className="sidebarListItem" >
+            {/* <li className="sidebarListItem" >
               <AttachMoney className="sidebarIcon" />
               Transactions
             </li>
             <li className="sidebarListItem" >
               <BarChart className="sidebarIcon" />
               Reports
-            </li>
+            </li> */}
           </ul>
         </div>
-        <div className="sidebarMenu">
+        {/* <div className="sidebarMenu">
           <h3 className="sidebarTitle">Notifications</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem" >
@@ -74,8 +74,8 @@ export default function Sidebar() {
               Messages
             </li>
           </ul>
-        </div>
-        <div className="sidebarMenu">
+        </div> */}
+        {/* <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
             <li className="sidebarListItem">
@@ -91,7 +91,7 @@ export default function Sidebar() {
               Reports
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );
