@@ -1,7 +1,6 @@
 import "./sidebar.css";
 import { useState } from "react";
 import {
-  LineStyle,
   Timeline,
   PermIdentity,
   Storefront,
@@ -27,19 +26,19 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/" className="link">
             <li id="home" className={state=== "home" ? "sidebarListItem active" : "sidebarListItem"}  onClick={(e) => setState(e.target.id)} >
-              <LineStyle className="sidebarIcon" />
-              Home
+              <Timeline className="sidebarIcon" />
+              Analytics
             </li> 
             </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Quick Menu</h3>
+          <h3 className="sidebarTitle">Data Management</h3>
           <ul className="sidebarList">
             <Link to="/users" className="link">
               <li id="users" className={state=== "users" ? "sidebarListItem active" : "sidebarListItem"}  onClick={(e) => setState(e.target.id)} >
                 <PermIdentity className="sidebarIcon" />
-                Users/Transactions
+                User/Transaction
               </li>
             </Link>
             <Link to="/products" className="link">
@@ -48,11 +47,13 @@ export default function Sidebar() {
                 Products
               </li>
             </Link>
-            {/* <li className="sidebarListItem" >
+            <Link to="/newproduct" className="link">
+            <li id="newproduct" className={state=== "newproduct" ? "sidebarListItem active" : "sidebarListItem"}  onClick={(e) => setState(e.target.id)} >
               <AttachMoney className="sidebarIcon" />
-              Transactions
+              Product Creation
             </li>
-            <li className="sidebarListItem" >
+            </Link>
+            {/* <li className="sidebarListItem" >
               <BarChart className="sidebarIcon" />
               Reports
             </li> */}
