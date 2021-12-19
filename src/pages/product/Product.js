@@ -1,9 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
 import {useState, useMemo, useEffect} from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Container, Form ,Button} from 'react-bootstrap'
 import "./product.css";
 import Chart from "../../components/chart/Chart"
 import { userRequest } from "../../apiService";
+import { updateProducts } from "../../redux/apiCalls";
 import { Publish } from "@material-ui/icons";
 
 export default function Product() {
@@ -11,7 +13,13 @@ export default function Product() {
     const productId = location.pathname.split("/")[2];
     // console.log(location.pathname);
 
+    const [title, setTitle] = useState("");
+    const [price, setPrice] = useState(0);
+    const [stock, setStock] = useState(0);
+    const [img, setImg] = useState("");
+
     const [productStats, setProductStats] = useState([]);
+    const dispatch = useDispatch();
 
     const MONTHS = useMemo (() => [
         "Jan",
@@ -32,7 +40,7 @@ export default function Product() {
         const getStats = async () => {
           try {
             const res = await userRequest.get("orders/income?proId=" + productId);
-            console.log("res", res);
+            // console.log("res", res);
             const list = res.data.sort((a, b) => {
                 return a._id - b._id
             })
@@ -50,9 +58,13 @@ export default function Product() {
       }, [productId, MONTHS]);
       console.log(productStats);
 
-    const product = useSelector(state => 
-        state.product.products.find((product) => 
-            product._id === productId));
+    const product = useSelector(state => state.product?.products.find((product) => product?._id === productId));
+
+    console.log(title, price, stock, img);
+    const submitHandler = (e) => {
+        e.preventDefault();
+        updateProducts(product._id, title, price, stock, img, dispatch);
+    }
 
   return (
     <div className="product">
@@ -88,29 +100,57 @@ export default function Product() {
           </div>
       </div>
       <div className="productBottom">
-          <form className="productForm">
-              <div className="productFormLeft">
-                  <label>Product Name</label>
-                  <input type="text" placeholder={product.title}/>
-                  <label>Product Price</label>
-                  <input type="text" placeholder={product.price}/>
-                  <label>In Stock</label>
-                  <select name="inStock" id="idStock">
-                      <option value="true">Yes</option>
-                      <option value="false">No</option>
-                  </select>
-              </div>
-              <div className="productFormRight">
-                  <div className="productUpload">
-                      <img src={product.img} className="productUploadImg" />
-                      <label for="file">
-                          <Publish/>
-                      </label>
-                      <input type="file" id="file" style={{display:"none"}} />
-                  </div>
-                  <button className="productButton">Update</button>
-              </div>
-          </form>
+      <Form onSubmit={submitHandler}>
+                <Form.Group controlId="title"> 
+                    <Form.Label>title</Form.Label>
+                    <Form.Control
+                        
+                        type="text"
+                        placeholder="Enter title"
+                        onChange={(e)=>setTitle(e.target.value)}
+                    >
+                    
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="price"> 
+                    <Form.Label>Price</Form.Label>
+                    <Form.Control
+                        
+                        type="text"
+                        placeholder="Enter price"
+                        onChange={(e)=>setPrice(e.target.value)}
+                    >
+                    
+                    </Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId="stock"> 
+                    <Form.Label>Stock</Form.Label>
+                    <Form.Control
+                        
+                        type="text"
+                        placeholder="Enter stock"
+                        onChange={(e)=>setStock(e.target.value)}
+                    >
+                    
+                    </Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId="img"> 
+                    <Form.Label>Image</Form.Label>
+                    <Form.Control
+                        
+                        type="text"
+                        placeholder="Enter image"
+                        onChange={(e)=>setImg(e.target.value)}
+                    >
+                    
+                    </Form.Control>
+                </Form.Group>
+                <Button type='submit' className="btn margin_btn">
+                    Update
+                </Button>
+            </Form>
       </div>
     </div>
   );

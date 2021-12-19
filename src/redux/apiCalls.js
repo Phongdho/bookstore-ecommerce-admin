@@ -45,12 +45,15 @@ export const deleteProducts = async (id, dispatch) => {
     }
 };
 
-export const updateProducts = async (id, product, dispatch) => {
+export const updateProducts = async (id, title, price, stock, img, dispatch) => {
     dispatch(updateProductRequest());
     try {
-        const res = await userRequest.put(`/products/${id}`);
-        dispatch(updateProductSuccess({id, product}));
+        console.log("update product",id, title, price, stock, img);
+        const res = await userRequest.put(`/products/${id}`, {title, price, stock, img});
+        console.log(res, 'result update product');
+        // dispatch(updateProductSuccess({id, product}));
     } catch (err) {
+        console.log("err", err);
         dispatch(updateProductFailure())
     }
 };

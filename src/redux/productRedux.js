@@ -49,7 +49,7 @@ const productSlice = createSlice({
         },
         updateProductFailure: (state) => {
             state.isFetching = false;
-            state.products = true;
+            // state.products = true;
         },
         //ADD NEW PRODUCT
         addProductRequest: (state) => {
