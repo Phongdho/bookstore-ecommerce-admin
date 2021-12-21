@@ -23,7 +23,7 @@ export default function Topbar() {
             <span className="topIconBadge">2</span>
           </div> */}
           <div className="topbarIconContainer">
-          <Link to="/login">  
+          <Link to="/">  
             <Settings />
           </Link>
           </div>
