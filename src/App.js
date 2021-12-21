@@ -18,7 +18,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/login">
+        <Route exact path="/">
           <Login />
         </Route>
         { onlyAdmin && (
@@ -26,7 +26,7 @@ function App() {
           <Topbar />
           <div className="container">
             <Sidebar />
-              <Route exact path="/">
+              <Route exact path="/home">
                 <Home />
               </Route>
               <Route path="/users">

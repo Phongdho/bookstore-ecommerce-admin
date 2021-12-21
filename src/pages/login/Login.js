@@ -13,7 +13,7 @@ const Login = () => {
     const handleClick = (e) => {
         e.preventDefault();
         login(dispatch, {email, password});
-        history.push('/');
+        history.push('/home');
     };
 
     return (
