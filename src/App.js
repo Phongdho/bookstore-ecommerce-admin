@@ -18,12 +18,12 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Topbar />
         <Route path="/login">
           <Login />
         </Route>
         { onlyAdmin && (
           <>
-          <Topbar />
           <div className="container">
             <Sidebar />
               <Route exact path="/">
