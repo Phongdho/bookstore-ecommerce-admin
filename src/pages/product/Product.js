@@ -100,9 +100,9 @@ export default function Product() {
           </div>
       </div>
       <div className="productBottom">
-      <Form onSubmit={submitHandler}>
-                <Form.Group controlId="title"> 
-                    <Form.Label>title</Form.Label>
+      <Form onSubmit={submitHandler} className="productFormLeft">
+                <Form.Group controlId="title" style={{marginBottom: "10px"}}> 
+                    <Form.Label style={{marginRight: "20px"}}>Title</Form.Label>
                     <Form.Control
                         
                         type="text"
@@ -112,8 +112,8 @@ export default function Product() {
                     
                     </Form.Control>
                 </Form.Group>
-                <Form.Group controlId="price"> 
-                    <Form.Label>Price</Form.Label>
+                <Form.Group controlId="price" style={{marginBottom: "10px"}}> 
+                    <Form.Label style={{marginRight: "20px"}}>Price</Form.Label>
                     <Form.Control
                         
                         type="text"
@@ -124,8 +124,8 @@ export default function Product() {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId="stock"> 
-                    <Form.Label>Stock</Form.Label>
+                <Form.Group controlId="stock" style={{marginBottom: "10px"}}> 
+                    <Form.Label style={{marginRight: "20px"}}>Stock</Form.Label>
                     <Form.Control
                         
                         type="text"
@@ -136,8 +136,8 @@ export default function Product() {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId="img"> 
-                    <Form.Label>Image</Form.Label>
+                <Form.Group controlId="img" style={{marginBottom: "10px"}}> 
+                    <Form.Label style={{marginRight: "20px"}}>Image</Form.Label>
                     <Form.Control
                         
                         type="text"
@@ -147,7 +147,7 @@ export default function Product() {
                     
                     </Form.Control>
                 </Form.Group>
-                <Button type='submit' className="btn margin_btn">
+                <Button type='submit' className="btn margin_btn productButton" style={{width: "20%"}}>
                     Update
                 </Button>
             </Form>

@@ -1,6 +1,10 @@
 import React from "react";
 import "./topbar.css";
-import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import { 
+  // NotificationsNone, 
+  // Language, 
+  Settings } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
@@ -19,7 +23,9 @@ export default function Topbar() {
             <span className="topIconBadge">2</span>
           </div> */}
           <div className="topbarIconContainer">
+          <Link to="/login">  
             <Settings />
+          </Link>
           </div>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxbaavdT8XbfZqUycEtXo2wDRF4J6l8Arytw&usqp=CAU" alt="" className="topAvatar" />
         </div>

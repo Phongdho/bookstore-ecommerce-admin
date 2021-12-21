@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "https://domdom-bookstore.herokuapp.com/api";
 
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
 // console.log(user);
